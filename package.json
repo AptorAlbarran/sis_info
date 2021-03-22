@@ -1,0 +1,22 @@
+{
+  "name": "sis_info",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index3.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AptorAlbarran/sis_info.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AptorAlbarran/sis_info/issues"
+  },
+  "homepage": "https://github.com/AptorAlbarran/sis_info#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

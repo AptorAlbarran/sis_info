@@ -22,8 +22,9 @@ router.post('/login', (req,res,next)=>{
       const payload={
         datos: d
       };
-      const clave='dios1234'; //obtener desde ENV
-      const token=jwt.sign(payload,clave,{ expiresIn:60*5 });
+      const clave= process.env.SECRETO || 'dios1234'; //obtener desde ENV, || actua como un "o"
+      console.log(clave);
+      const token=jwt.sign(payload,clave,{expiresIn:60*5});
       ses.token=token;
 
       res.redirect('/');
