@@ -1,13 +1,13 @@
 const express = require('express')
 const app = express()
-const port = 3001
+const port = 3000
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.post('/',(rep, res) => {
-  res.send("con metodo POST");
+app.post('/', (req, res)=>{
+  res.send('Con metodo POST')
 })
 
 app.listen(port, () => {

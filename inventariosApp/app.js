@@ -1,14 +1,14 @@
 var createError = require('http-errors');
 var express = require('express');
-var path = require('path'); //contenidos estáticos
+var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var session = require('espress-session');
+var session = require ('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var lolRouter = require('./routes/leagueOL');
+var almecenRouter = require('./routes/almacen');
 
 var app = express();
 
@@ -22,15 +22,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 //sesiones
 app.use(session({
-  resave:false,
-  saveUninitialized:true
+  secret: 'no_te_lo_idgo',
+  resave: false,
+  saveUninitialized: true,
+  //cookie: { secure: true }
 }));
 
+
 app.use(express.static(path.join(__dirname, 'public')));
+//bootstrap
+app.use(express.static(path.join(__dirname, '/node_modules/bootstrap/dist')));
+app.use(express.static(path.join(__dirname, '/node_modules/jquery/')));
+app.use(express.static(path.join(__dirname, '/node_modules/popper.js/dist')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/campeones', lolRouter);
+app.use('/almacen', almecenRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
